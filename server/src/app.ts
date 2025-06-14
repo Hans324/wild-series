@@ -24,6 +24,17 @@ if (process.env.CLIENT_URL != null) {
   app.use(cors({ origin: [process.env.CLIENT_URL] }));
 }
 
+import type { RequestHandler } from "express";
+
+// Définition de ta route GET /
+const sayWelcome: RequestHandler = (req, res) => {
+  res.send("Welcome to Wild Series !");
+};
+
+app.get("/", sayWelcome);
+
+// Autres middlewares et routes...
+
 // If you need to allow extra origins, you can add something like this:
 
 /*
